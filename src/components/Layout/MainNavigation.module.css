@@ -56,3 +56,34 @@
 .threeLineBar{
   display: none;
 }
+@media all and (max-width: 500px) {
+  
+.fullScreen{
+  display: none;
+}
+.threeLineBar div{
+  height: 4px;
+  margin: 5px;
+  background-color: white;
+  border-radius: 25rem;
+}
+.threeLineBar{
+  width: 40px;
+  display: block;
+  margin: 1em 1en 0 0;
+  position: relative;
+  display: inline-block;
+}
+.threeLineBar_content{
+  display: none;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+.threeLineBar:hover .threeLineBar_content{
+  display: block;
+  width: 100%;
+}
+}
