@@ -19,7 +19,7 @@ const MainNavigation = () => {
       <Link to='/'>
         <div className={classes.logo}>Puzzle Game</div>
       </Link>
-      <nav className={classes.fullScreen}>
+      <nav>
         <ul>
           {!isLoggedIn && ( // to show only when user is NOT logged in
             <li>
@@ -38,30 +38,6 @@ const MainNavigation = () => {
           )}
         </ul>
       </nav>
-      <section className={classes.threeLineBar}>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div >
-        <ul className={classes.threeLineBar_content}>
-          {!isLoggedIn && ( // to show only when user is NOT logged in
-            <li>
-              <Link to='/auth'>Login</Link>
-            </li>
-          )}
-          {isLoggedIn && ( // to show only when user is logged in
-            <li>
-              <Link to='/profile'>Profile</Link>
-            </li>
-          )}
-          {isLoggedIn && (   // to show only when user is logged in
-            <li>
-              <button onClick={logoutHandler}>Logout</button>
-            </li>
-          )}
-        </ul>
-        </div>
-      </section>
     </header>
   );
 };

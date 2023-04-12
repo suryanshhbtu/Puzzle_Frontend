@@ -71,9 +71,3 @@
     background-color: transparent;
     color: #1080db;
   }
-  .threeLineBar div{
-    height: 4px;
-    margin: 5px;
-    background-color: white;
-    border-radius: 25rem;
-  }
