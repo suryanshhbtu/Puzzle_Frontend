@@ -60,7 +60,7 @@ const AuthForm = () => {
           console.log(data);
           console.log(data.expiresIn);
           const expirationTime = new Date(new Date().getTime() + (+14400000));  // expires in is in sec -> msec -> date + expire => expireTime
-          authCtx.login(data.token, expirationTime.toISOString(), data._id, data.name, data.email, data.password, data.time, data.score, data.level, data.role);  // executing login
+          authCtx.login(data.token, expirationTime.toISOString(), data._id, data.name, data.email, data.password, data.time, data.score, data.level, data.role, data.attempt);  // executing login
           history.replace('/');          // back disabled
         })
         .catch((err) => {
@@ -85,6 +85,7 @@ const AuthForm = () => {
         score:"0",
         level:"0",
         role:"user",
+        attempt:"0",
         returnSecureToken: true,
       }),
       headers: {
@@ -94,7 +95,7 @@ const AuthForm = () => {
       setIsLoading(false);
       if (res.ok) {
         if (!isLogin)
-          alert("Login Successful " + enteredName + ", now you can Login");
+          alert("SignUp Successful " + enteredName + ", now you can Login");
         return res.json();
       } else {
         return res.json().then((data) => {

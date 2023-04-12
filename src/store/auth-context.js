@@ -12,7 +12,8 @@ const AuthContext = React.createContext({
     time:"",
     score:"",
     level:"",
-    role:""
+    role:"",
+    attempt:""
 });
 let logoutTimer;
 
@@ -55,9 +56,10 @@ export const AuthContextProvider = (props) =>{
     const [score, setScore] = useState();
     const [level, setLevel] = useState();
     const [role, setRole] = useState("user");
+    const [attempt, setAttempt] = useState();
     const userIsLoggedIn = !!token;
 
-    const loginHandler = (token, expirationTime, _id, name, email, password, time, score, level, role) =>{
+    const loginHandler = (token, expirationTime, _id, name, email, password, time, score, level, role, attempt) =>{
         localStorage.setItem("token", token);
         // console.log(token);
 
@@ -69,6 +71,7 @@ export const AuthContextProvider = (props) =>{
         setScore(score);
         setLevel(level);
         setRole(role);
+        setRole(attempt);
 
         localStorage.setItem("expirationTime", expirationTime);
         localStorage.setItem("_id", _id);
@@ -79,6 +82,7 @@ export const AuthContextProvider = (props) =>{
         localStorage.setItem("score", score);
         localStorage.setItem("level", level);
         localStorage.setItem("role", role);
+        localStorage.setItem("attempt", attempt);
 
         const remainingTime = calculatingRemainingTime(expirationTime);
         logoutTimer = setTimeout(loginHandler, remainingTime);
@@ -94,6 +98,7 @@ export const AuthContextProvider = (props) =>{
         setScore(null);
         setLevel(null);
         setRole(null);
+        setAttempt(null);
 
         localStorage.removeItem("expirationTime");
         localStorage.removeItem("_id");
@@ -104,6 +109,7 @@ export const AuthContextProvider = (props) =>{
         localStorage.removeItem("score");
         localStorage.removeItem("level");
         localStorage.removeItem("role");
+        localStorage.removeItem("attempt");
 
         localStorage.removeItem("token");
         localStorage.removeItem("expirationTime");
@@ -130,7 +136,8 @@ export const AuthContextProvider = (props) =>{
         time:time,
         score:score,
         level:level,
-        role:role   
+        role:role,
+        attempt: attempt
     };
 
     // wrapping provider
