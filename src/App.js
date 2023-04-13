@@ -6,6 +6,7 @@ import UserProfile from "./components/Profile/UserProfile";
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 import AuthContext from "./store/auth-context";
+import QuestionPage from "./pages/QuestionPage";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -22,6 +23,11 @@ function App() {
         )}
           <Route path="/profile">
         {authCtx.isLoggedIn && <UserProfile />}
+        {!authCtx.isLoggedIn && <Redirect to= '/' />}
+          </Route>
+
+          <Route path="/question">
+        {authCtx.isLoggedIn && <QuestionPage />}
         {!authCtx.isLoggedIn && <Redirect to= '/' />}
           </Route>
         

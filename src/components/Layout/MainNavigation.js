@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import AuthContext from '../../store/auth-context';
 import classes from './MainNavigation.module.css';
@@ -16,19 +16,24 @@ const MainNavigation = () => {
   return (
     <header className={classes.header}>
       
-      <Link to='/'>
+      <NavLink to='/'>
         <div className={classes.logo}>Puzzle Game</div>
-      </Link>
+      </NavLink>
       <nav>
         <ul>
           {!isLoggedIn && ( // to show only when user is NOT logged in
             <li>
-              <Link to='/auth'>Login</Link>
+              <NavLink to='/auth'>Login</NavLink>
             </li>
           )}
           {isLoggedIn && ( // to show only when user is logged in
             <li>
-              <Link to='/profile'>Profile</Link>
+              <NavLink to='/profile'>Profile</NavLink>
+            </li>
+          )}
+          {isLoggedIn && ( // to show only when user is logged in
+            <li>
+              <NavLink to='/question'>Question</NavLink>
             </li>
           )}
           {isLoggedIn && (   // to show only when user is logged in

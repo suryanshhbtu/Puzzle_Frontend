@@ -30,13 +30,21 @@ const retriveStoredToken = ()=>{
     const storedToken = localStorage.getItem("token");
     const storedExpirationDate = localStorage.getItem("expirationTime");
     const remainingTime = calculatingRemainingTime(storedExpirationDate);
-
+    
+    const stored_id = localStorage.getItem("_id");
+    const storedName = localStorage.getItem("name");
+    const storedEmail = localStorage.getItem("email");
+    const storedTime = localStorage.getItem("time");
+    const storedScore = localStorage.getItem("score");
+    const storedLevel = localStorage.getItem("level");
+    const storedRole = localStorage.getItem("role");
+    const storedAttempt = localStorage.getItem("attempt");
     if(remainingTime<4000){
         localStorage.removeItem("token");
         localStorage.removeItem("expirationTime");
         return null;
     }
-    return {token: storedToken, duration: remainingTime};
+    return {token: storedToken, duration: remainingTime, _id:stored_id, name:storedName, eamil:storedEmail,time:storedTime, score:storedScore, level:storedLevel, role: storedRole, attempt:storedAttempt };
 }
 
 // Context Provider
@@ -44,19 +52,36 @@ export const AuthContextProvider = (props) =>{
     const tokenData = retriveStoredToken();
 
     let initialToken;
+    let initial_id;
+    let initialName;
+    let initialEmail;
+    let initialTime;
+    let initialScore;
+    let initialLevel;
+    let initialRole;
+    let initialAttempt;
+
     if(tokenData){ // checking null
        initialToken = tokenData.token; 
+       initial_id = tokenData._id;
+       initialName = tokenData.name;
+       initialEmail = tokenData.email;
+       initialTime = tokenData.time;
+       initialScore = tokenData.score;
+       initialLevel = tokenData.level;
+       initialRole = tokenData.role;
+       initialAttempt = tokenData.attempt;
     }
 
     const [token, setToken] = useState(initialToken);    
-    const [_id, set_id] = useState();
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [time, setTime] = useState();
-    const [score, setScore] = useState();
-    const [level, setLevel] = useState();
-    const [role, setRole] = useState("user");
-    const [attempt, setAttempt] = useState();
+    const [_id, set_id] = useState(initial_id);
+    const [name, setName] = useState(initialName);
+    const [email, setEmail] = useState(initialEmail);
+    const [time, setTime] = useState(initialTime);
+    const [score, setScore] = useState(initialScore);
+    const [level, setLevel] = useState(initialLevel);
+    const [role, setRole] = useState(initialRole);
+    const [attempt, setAttempt] = useState(initialAttempt);
     const userIsLoggedIn = !!token;
 
     const loginHandler = (token, expirationTime, _id, name, email, password, time, score, level, role, attempt) =>{
