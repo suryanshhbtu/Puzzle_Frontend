@@ -6,6 +6,7 @@ const AuthContext = React.createContext({
     isLoggedIn: false,
     login:(token)=>{},
     logout: ()=>{},
+    update:()=>{},
     _id:"",
     name:"",
     email:"",
@@ -13,7 +14,7 @@ const AuthContext = React.createContext({
     score:"",
     level:"",
     role:"",
-    attempt:""
+    attempt:"",
 });
 let logoutTimer;
 
@@ -44,6 +45,8 @@ const retriveStoredToken = ()=>{
         localStorage.removeItem("expirationTime");
         return null;
     }
+    console.log("retrive"+ storedLevel+storedAttempt);
+    
     return {token: storedToken, duration: remainingTime, _id:stored_id, name:storedName, eamil:storedEmail,time:storedTime, score:storedScore, level:storedLevel, role: storedRole, attempt:storedAttempt };
 }
 
@@ -62,6 +65,7 @@ export const AuthContextProvider = (props) =>{
     let initialAttempt;
 
     if(tokenData){ // checking null
+        console.log(tokenData.level+tokenData.attempt+" tokendata");
        initialToken = tokenData.token; 
        initial_id = tokenData._id;
        initialName = tokenData.name;
@@ -88,16 +92,6 @@ export const AuthContextProvider = (props) =>{
         localStorage.setItem("token", token);
         // console.log(token);
 
-        setToken(token);
-        set_id(_id);
-        setName(name);
-        setEmail(email);
-        setTime(time);
-        setScore(score);
-        setLevel(level);
-        setRole(role);
-        setRole(attempt);
-
         localStorage.setItem("expirationTime", expirationTime);
         localStorage.setItem("_id", _id);
         localStorage.setItem("name", name);
@@ -108,6 +102,17 @@ export const AuthContextProvider = (props) =>{
         localStorage.setItem("level", level);
         localStorage.setItem("role", role);
         localStorage.setItem("attempt", attempt);
+        localStorage.setItem("message", "reactJS ki maka bhosda");
+        console.log(attempt+"login");
+        setToken(token);
+        set_id(_id);
+        setName(name);
+        setEmail(email);
+        setTime(time);
+        setScore(score);
+        setLevel(level);
+        setRole(role);
+        setAttempt(attempt);
 
         const remainingTime = calculatingRemainingTime(expirationTime);
         logoutTimer = setTimeout(loginHandler, remainingTime);
@@ -143,18 +148,39 @@ export const AuthContextProvider = (props) =>{
         }
     },[]);
 
+    const update = ( _id, name, email, time, score, level, role, attempt)=>{
+        console.log(attempt+"update");
+
+        set_id(_id);
+        setName(name);
+        setEmail(email);
+        setTime(time);
+        setScore(score);
+        setLevel(level);
+        setRole(role);
+        setAttempt(attempt);
+        localStorage.setItem("_id", _id);
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("time", time);
+        localStorage.setItem("score", score);
+        localStorage.setItem("level", level);
+        localStorage.setItem("role", role);
+        localStorage.setItem("attempt", attempt);
+    }
     useEffect(()=>{
         if(tokenData){
             console.log(tokenData);
             logoutTimer = setTimeout(logoutHandler, tokenData.duration);
         }
-    }, [tokenData, logoutHandler]);
+    }, [tokenData, logoutHandler,update]);
 
     const contextValue = {
         token: token,
         isLoggedIn: userIsLoggedIn,
         login: loginHandler,
         logout: logoutHandler,
+        update: update,
         _id:_id,
         name:name,
         email:email,
