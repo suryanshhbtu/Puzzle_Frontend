@@ -1,12 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import classes from "./QuestionCard.module.css";
 import AuthContext from "../../store/auth-context";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Timer from "./Timer";
+
+
 const QuestionCard = (props) => {
-    // const answerRef = useRef();
-    const [userInput, setUserInput] = useState();
-    const [getTime, setTime] = useState(0);
+    const answerRef = useRef(), formRef = useRef();
+    const [getTime, setTime] = useState("0");
+    const [score, setScore] = useState(100);
     const [resetTimer, setResetTimer] = useState();
     const authCtx = useContext(AuthContext);
 
@@ -42,13 +44,9 @@ const QuestionCard = (props) => {
               alert(err.message);  // failed alert
             });}
 
-    // useEffect(()=>{
+  
 
-    // }, [fetchPatchedData]);
-
-    const onChangeHandler =(event) =>{
-        setUserInput(event.target.value)
-    }
+            
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
@@ -56,8 +54,10 @@ const QuestionCard = (props) => {
         console.log(authCtx.attempt+" submit handler");
         
         authCtx.attempt = (parseInt(authCtx.attempt,10)+1);
-        if(userInput !== props.answer){
-            setUserInput('');
+        if(answerRef.current.value !== props.answer){
+            // setUserInput('');
+            formRef.current.reset();
+            setScore((prevState)=>{ return prevState-5});
             fetch(
               `http://localhost:3030/user/${authCtx._id}`,
               {
@@ -82,12 +82,21 @@ const QuestionCard = (props) => {
             });
             return;
         }else{
-          authCtx.score = (parseInt(authCtx.score,10)+100);
-          authCtx.time = (parseInt(authCtx.time,10)+ (new Date().getTime()-getTime.getTime())/1000);
+          let time = (new Date().getTime()-getTime.getTime())/1000;
+          let currScore = 100;
+          if(score !== 100) currScore = score; 
+          if(time <= 120) currScore = currScore+120-time;
+
+          console.log(score);
+
+          authCtx.score = (parseInt(authCtx.score,10)+currScore);
+          authCtx.time = (parseInt(authCtx.time,10)+ time);
           authCtx.level = (parseInt(authCtx.level,10)+1);
           console.log("XXXX"+authCtx.level+authCtx.attempt);
         }
-        setUserInput('');
+        // setUserInput('');
+        
+        formRef.current.reset();
         //add validation
         fetch(
           `http://localhost:3030/user/${authCtx._id}`,
@@ -134,9 +143,9 @@ const QuestionCard = (props) => {
                     sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
                     src={`https://youtube.com/embed/${props.src}?autoplay=0`}>
                 </iframe>}
-                <form className={classes.control} onSubmit={onSubmitHandler}>
+                <form className={classes.control} onSubmit={onSubmitHandler} ref={formRef}>
                     <label>{props.statement}</label>
-                    <input value={userInput} onChange={onChangeHandler} />
+                    <input ref={answerRef}/>
                     <button className={classes.button}>Submit</button>
                 </form>
             </p>

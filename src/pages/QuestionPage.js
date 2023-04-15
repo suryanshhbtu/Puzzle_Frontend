@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import QuestionCard from "../components/Layout/QuestionCard";
 import AuthContext from "../store/auth-context";
+import LastPage from "./LastPage";
 const question_list = [
     {
         title: "Raigad Fort Raids",
@@ -101,6 +102,7 @@ const QuestionPage = () => {
                             statement={question_list[level].statement}
                             src={question_list[level].src} answer={question_list[level].answer} clue={question_list[level].clue} />
                 }
+                {level == 10 && <LastPage/>}
         </div>
     );
 
