@@ -1,8 +1,51 @@
 .starting {
-  margin: 3rem auto;
-  text-align: center;
+  /* margin: 0.5rem auto;
+  text-align: center; */
 }
 
 .starting h1 {
-  font-size: 5rem;
+  /* font-size: 5rem; */
+}
+.header{
+  max-height: 20px;
+}
+/* }
+.title{
+  height: inherit;
+  font-family: "Times New Roman", Times, serif;
+  font-style: bold;
+  font-size: 32px;
+  max-height: 20px; 
+  color:#726f04;
+  padding: auto;
+}
+.title_img{
+  margin-top:0.75%;
+  width: 40%;
+  max-height: 200px;
+} */
+.bigcard{
+  padding: 5%;
+  overflow: hidden;
+  
+  border-radius: 6px;
+  background-color: #eec0a0;
+  padding: 2%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.img{
+  max-width: 30%;
+  max-height: 70%;
+  float: left;
+  margin-right: 4%;
+  border-radius: 6px;
+}
+.data{
+  width: 95%;
+  border-radius: 6px;
+  background-color: #a24809;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+  color: aliceblue;
 }

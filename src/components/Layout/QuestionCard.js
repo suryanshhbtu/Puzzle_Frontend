@@ -133,9 +133,11 @@ const QuestionCard = (props) => {
 
     return (
         <div className={classes.card}>
+          <div  className = {classes.timer}>
           <Timer reset = {resetTimer} getTimeHandler = {getTimeHandler}/>
+          </div>
             <h2 className={classes.header}>{props.title}</h2>
-            <p className={classes.statement}>
+            <div className={classes.statement}>
                 {props.brief}
                 {props.src.includes(".JPG") && <img className={classes.img} src={require(`../../img/${props.src}`)} />}
                 {!props.src.includes(".JPG") && <iframe className={classes.vdo}
@@ -148,7 +150,7 @@ const QuestionCard = (props) => {
                     <input ref={answerRef}/>
                     <button className={classes.button}>Submit</button>
                 </form>
-            </p>
+            </div>
 
 
         </div>

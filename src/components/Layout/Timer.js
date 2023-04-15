@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react'
-  
+  import classes from "./Timer.module.css";
 const Timer = (props) => {
     const Ref = useRef(null);
   
@@ -85,7 +85,7 @@ const Timer = (props) => {
   
     return (
         <div >
-            <h2>{timer}</h2>
+            <h4  className={classes.timer}>{timer}</h4>
         </div>);
 };
 

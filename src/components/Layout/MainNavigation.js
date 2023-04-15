@@ -16,29 +16,29 @@ const MainNavigation = () => {
   return (
     <header className={classes.header}>
       
-      <NavLink to='/'>
+      <NavLink to='/' >
         <div className={classes.logo}>Puzzle Game</div>
       </NavLink>
-      <nav>
+      <nav className={classes.topnav}>
         <ul>
           {!isLoggedIn && ( // to show only when user is NOT logged in
             <li>
-              <NavLink to='/auth'>Login</NavLink>
+              <NavLink className={classes.navlink} to='/auth'>Login</NavLink>
             </li>
           )}
           {isLoggedIn && ( // to show only when user is logged in
             <li>
-              <NavLink to='/profile'>Profile</NavLink>
+              <NavLink className={classes.navlink}  to='/profile'>Profile</NavLink>
             </li>
           )}
           {isLoggedIn && ( // to show only when user is logged in
             <li>
-              <NavLink to='/question'>Question</NavLink>
+              <NavLink className={classes.navlink} to='/question'>Question</NavLink>
             </li>
           )}
           {isLoggedIn && (   // to show only when user is logged in
             <li>
-              <button onClick={logoutHandler}>Logout</button>
+              <button className={classes.navlink} onClick={logoutHandler}>Logout</button>
             </li>
           )}
         </ul>
