@@ -1,22 +1,16 @@
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+
 import classes from './StartingPageContent.module.css';
 import shivaji from "../../img/shivaji.jpg";
-import borderDown from "../../img/borderDown.JPG";
-import { Fragment } from 'react';
 
 import Typewriter from "typewriter-effect";
-
-import React, { useState, useEffect } from "react";
 const StartingPageContent = () => {
   
 
   return (
-    <Fragment>
 
-<p id="demo"></p>
 
     <section className={classes.starting}>
-      <h4>Treasure Of Chhatrapati  Shivaji  Maharaja </h4>
+      <h1 className={classes.heading}>Treasure Of Chhatrapati  Shivaji  Maharaja </h1>
       <div className={classes.bigcard}>
         <img className={classes.img} src={shivaji} alt="shivaji"/>
       <div className={classes.data}>
@@ -64,7 +58,6 @@ const StartingPageContent = () => {
 
     </section>
     
-    </Fragment>
   );
 };
 

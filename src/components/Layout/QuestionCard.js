@@ -1,7 +1,6 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import classes from "./QuestionCard.module.css";
 import AuthContext from "../../store/auth-context";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import Timer from "./Timer";
 
 
@@ -10,12 +9,13 @@ const QuestionCard = (props) => {
     const [getTime, setTime] = useState("0");
     const [score, setScore] = useState(100);
     const [resetTimer, setResetTimer] = useState();
+    
     const authCtx = useContext(AuthContext);
 
     console.log("RERRRRRR"+authCtx.level+authCtx.attempt);
     const fetchPatchedData = () =>{
         fetch(
-            `http://localhost:3030/user/${authCtx._id}`,
+            `https://shivaji-puzzle.azurewebsites.net/user/${authCtx._id}`,
             {
               method: "GET",
               headers: {
@@ -59,7 +59,7 @@ const QuestionCard = (props) => {
             formRef.current.reset();
             setScore((prevState)=>{ return prevState-5});
             fetch(
-              `http://localhost:3030/user/${authCtx._id}`,
+              `https://shivaji-puzzle.azurewebsites.net/${authCtx._id}`,
               {
                 method: "PATCH",
                 body: JSON.stringify({
@@ -73,9 +73,10 @@ const QuestionCard = (props) => {
             ).then(res => {
               //assumiong always success
     
-              alert("Wrong Answer try Again");
+              // alert();
               fetchPatchedData();
-              return <Redirect to= '/question' />
+          alert("Wrong Answer Try Again !!");
+              return;
             //   history.replace('/'); // new page without back option
             }).catch((err)=>{
                 console.log(err);
@@ -99,7 +100,7 @@ const QuestionCard = (props) => {
         formRef.current.reset();
         //add validation
         fetch(
-          `http://localhost:3030/user/${authCtx._id}`,
+          `https://shivaji-puzzle.azurewebsites.net/user/${authCtx._id}`,
           {
             method: "PATCH",
             body: JSON.stringify({
@@ -116,10 +117,12 @@ const QuestionCard = (props) => {
         ).then(res => {
           //assumiong always success
 
-          alert("Right Answer any your clue is "+ props.clue+"  write down on a piece paper for final answer");
           fetchPatchedData();
           setResetTimer((prevState)=>!prevState);
-          return <Redirect to= '/question' />
+          let message = "Right Answer any your clue is "+ props.clue+"  write down on a piece paper for final answer";
+          // setModal(true);
+          alert(message);
+          return ;
         //   history.replace('/'); // new page without back option
         }).catch((err)=>{
             console.log(err);
@@ -139,7 +142,7 @@ const QuestionCard = (props) => {
             <h2 className={classes.header}>{props.title}</h2>
             <div className={classes.statement}>
                 {props.brief}
-                {props.src.includes(".JPG") && <img className={classes.img} src={require(`../../img/${props.src}`)} />}
+                {props.src.includes(".JPG") && <img className={classes.img} src={require(`../../img/${props.src}`)} alt="question" />}
                 {!props.src.includes(".JPG") && <iframe className={classes.vdo}
                     title='Youtube player'
                     sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
@@ -151,6 +154,7 @@ const QuestionCard = (props) => {
                     <button className={classes.button}>Submit</button>
                 </form>
             </div>
+            {/* {modal && <Model message={modalMessage}/>} */}
 
 
         </div>

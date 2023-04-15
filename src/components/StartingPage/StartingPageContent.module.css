@@ -6,8 +6,12 @@
 .starting h1 {
   /* font-size: 5rem; */
 }
-.header{
-  max-height: 20px;
+.heading{
+  margin: auto;
+  text-align: center;
+  color: #a24809;
+  font-style: italic;
+  text-size-adjust: auto;
 }
 /* }
 .title{
@@ -37,7 +41,6 @@
   max-width: 30%;
   max-height: 70%;
   float: left;
-  margin-right: 4%;
   border-radius: 6px;
 }
 .data{

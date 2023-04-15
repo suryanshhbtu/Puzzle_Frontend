@@ -76,11 +76,11 @@ const question_list = [
         clue:"59"
     },
     {
-        title: "Hail Godess",
-        brief: "Shiva Ji respects all the womens. Watch https://www.youtube.com/shorts/U47xPddfh0A",
-        statement:"Type name of goddess depected in video",
-        src: "shorts/U47xPddfh0A",
-        answer: "parvati",
+        title: "Cultural and Technical",
+        brief: "You have heard this name during the quiz",
+        statement:"Type name of city(all small)",
+        src: "q10.JPG",
+        answer: "pune",
         clue:"°E"
     },
 
@@ -102,7 +102,7 @@ const QuestionPage = () => {
                             statement={question_list[level].statement}
                             src={question_list[level].src} answer={question_list[level].answer} clue={question_list[level].clue} />
                 }
-                {level == 10 && <LastPage/>}
+                {level === 10 && <LastPage/>}
         </div>
     );
 

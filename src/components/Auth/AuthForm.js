@@ -29,7 +29,7 @@ const AuthForm = () => {
     let url;
     // LOGIN
     if (isLogin) {
-      url = "http://localhost:3030/user/login";
+      url = "https://shivaji-puzzle.azurewebsites.net/user/login";
       const enteredEmail = emailInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;
       fetch(url, {
@@ -70,7 +70,7 @@ const AuthForm = () => {
     else 
     {
       // signUp
-      url = "http://localhost:3030/user/signup";
+      url = "https://shivaji-puzzle.azurewebsites.net/user/signup";
     
       const enteredEmail = emailInputRef.current.value;
       const enteredPassword = passwordInputRef.current.value;

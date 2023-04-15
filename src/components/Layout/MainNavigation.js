@@ -12,6 +12,7 @@ const MainNavigation = () => {
   }
 
   const isLoggedIn = authCtx.isLoggedIn;
+  const isAdmin = authCtx.role === "admin";
 
   return (
     <header className={classes.header}>
@@ -31,9 +32,14 @@ const MainNavigation = () => {
               <NavLink className={classes.navlink}  to='/profile'>Profile</NavLink>
             </li>
           )}
-          {isLoggedIn && ( // to show only when user is logged in
+          {!isAdmin && isLoggedIn && ( // to show only when user is logged in
             <li>
               <NavLink className={classes.navlink} to='/question'>Question</NavLink>
+            </li>
+          )}
+          {isAdmin && isLoggedIn && ( // to show only when user is logged in
+            <li>
+              <NavLink className={classes.navlink} to='/leaderboard'>Leader Board</NavLink>
             </li>
           )}
           {isLoggedIn && (   // to show only when user is logged in
