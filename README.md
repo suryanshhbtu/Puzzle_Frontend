@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+Project Name: Shivaji's Treasure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    Shivaji's Treasure is a treasure hunt game web application built using React.js for the frontend and Node.js for the backend. 
+    The application uses several hooks such as useState, useEffect, useCallback, useRef, useContext, etc. to manage the state and data flow between components.
+    The typewriter and confetti libraries are used for typewriting effect and winning popper, respectively.
 
-## Available Scripts
+Features
+  The following are the main features of this treasure hunt game web application:
 
-In the project directory, you can run:
+    Signup Page: Users can sign up for the game by providing their name, email address, and password.
+    Login Page: Registered users can log in to their account using their email address and password.
+    Home Page: The home page displays the game rules and the user's progress in the game.
+    Profile Page: The profile page displays the user's score, email, attempts, levels, time taken, accuracy, etc.
+    Question Page: The question page displays a question and multiple choices. The user has to select the correct answer to move to the next question.
+    LeaderBoard: The leaderboard displays the top players' scores and rankings.
+    Responsive UI: The application has a responsive UI that adapts to different screen sizes.
+    
+Installation
+  To run this application on your local machine, follow these steps:
 
-### `npm start`
+    Clone the repository.
+    Run 'npm install' to install the dependencies.
+    Run 'npm start' to start the application.
+    
+Deployment
+    This application is deployed on Firebase. You can access the deployed version at https://shivajipuzzle.web.app/
+    
+Contributing
+    Contributions are welcome! If you find a bug or want to add a new feature, please open an issue first to discuss it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+    This project is licensed under the selfLicenced.
