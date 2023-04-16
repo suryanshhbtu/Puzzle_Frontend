@@ -10,8 +10,10 @@
   margin: auto;
   text-align: center;
   color: #a24809;
-  font-style: italic;
+  font-style: bold;
   text-size-adjust: auto;
+  font-family: 'Lato', sans-serif;
+  font-size: 3rem;
 }
 /* }
 .title{

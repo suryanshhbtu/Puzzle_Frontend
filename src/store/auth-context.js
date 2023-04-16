@@ -147,7 +147,7 @@ export const AuthContextProvider = (props) =>{
             clearTimeout(logoutTimer);
         }
     },[]);
-
+    
     const update = ( _id, name, email, time, score, level, role, attempt)=>{
         console.log(attempt+"update");
 
@@ -173,7 +173,7 @@ export const AuthContextProvider = (props) =>{
             console.log(tokenData);
             logoutTimer = setTimeout(logoutHandler, tokenData.duration);
         }
-    }, [tokenData, logoutHandler,update]);
+    }, [tokenData, logoutHandler]);
 
     const contextValue = {
         token: token,

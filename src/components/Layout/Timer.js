@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
   import classes from "./Timer.module.css";
 const Timer = (props) => {
     const Ref = useRef(null);
@@ -70,7 +70,7 @@ const Timer = (props) => {
     // mount only
     useEffect(() => {
         onClickReset();
-        setStartTime(new Date);
+        setStartTime(new Date());
         clearTimer(getDeadTime());
     }, [props.reset]);
   

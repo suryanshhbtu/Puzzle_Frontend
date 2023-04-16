@@ -59,7 +59,7 @@ const QuestionCard = (props) => {
             formRef.current.reset();
             setScore((prevState)=>{ return prevState-5});
             fetch(
-              `https://shivaji-puzzle.azurewebsites.net/${authCtx._id}`,
+              `https://shivaji-puzzle.azurewebsites.net/user/${authCtx._id}`,
               {
                 method: "PATCH",
                 body: JSON.stringify({
