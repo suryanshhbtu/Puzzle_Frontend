@@ -1,10 +1,11 @@
-Project Name: Shivaji's Treasure
+#Project Name: Shivaji's Treasure
 
     Shivaji's Treasure is a treasure hunt game web application built using React.js for the frontend and Node.js for the backend. 
     The application uses several hooks such as useState, useEffect, useCallback, useRef, useContext, etc. to manage the state and data flow between components.
     The typewriter and confetti libraries are used for typewriting effect and winning popper, respectively.
 
-Features
+#Features
+
   The following are the main features of this treasure hunt game web application:
 
     Signup Page: Users can sign up for the game by providing their name, email address, and password.
@@ -15,7 +16,8 @@ Features
     LeaderBoard: The leaderboard displays the top players' scores and rankings.
     Responsive UI: The application has a responsive UI that adapts to different screen sizes.
     
-Installation
+#Installation
+
   To run this application on your local machine, follow these steps:
 
     Clone the repository.
@@ -23,10 +25,13 @@ Installation
     Run 'npm start' to start the application.
     
 Deployment
+
     This application is deployed on Firebase. You can access the deployed version at https://shivajipuzzle.web.app/
     
 Contributing
+
     Contributions are welcome! If you find a bug or want to add a new feature, please open an issue first to discuss it.
 
 License
+
     This project is licensed under the selfLicenced.
