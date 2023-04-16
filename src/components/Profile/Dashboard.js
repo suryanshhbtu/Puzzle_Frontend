@@ -1,8 +1,7 @@
-import { useCallback, useContext, useEffect, useState } from "react";
-import UserCard from "../Layout/UserCard";
+import { Fragment, useCallback, useContext, useEffect, useState } from "react";
 import AuthContext from "../../store/auth-context";
 
-const LeaderBoard = () => {
+const Dashboard = () => {
     const authCtx = useContext(AuthContext);
 
     const [userList, setUserList] = useState([]);
@@ -39,19 +38,46 @@ const LeaderBoard = () => {
     useEffect(()=>{
         fetchPatchedData();
     }, [fetchPatchedData])
-    let x = 1;
-    userList.sort(function(a, b){return b.score - a.score});
+    const totalUsers = userList.length;
+    let totalScore = 0;
+    let totalAttempts = 0;
+    let totalTime = 0;
+    
+    userList.map((user)=>{
+        totalScore += user.score;
+        totalAttempts += user.attempt;
+        totalTime += user.time;
+    });
     return (
-        userList.map((user) => {
-            return (
-                <UserCard key = {x} rank={x++} name={user.name}
-                    email={user.email}
-                    score={user.score}
-                    attempt={user.attempt}
-                    time={user.time} level={user.level} />)
-                    
-        })
+        <Fragment>
+            { totalUsers !== 0  &&    <div>
+
+       <table className="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Total Users</th>
+      <th scope="col">{totalUsers}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Average Score</th>
+      <td>{(totalScore/totalUsers).toFixed(2)}</td>
+    </tr>
+ <tr>
+    <th scope="row">Average Time</th>
+      <td>{(totalTime/totalUsers).toFixed(2)}</td>
+    </tr>
+    <tr>
+      <th scope="row">Average Attempts</th>
+      <td >{(totalAttempts/totalUsers).toFixed(2)}</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>}
+        </Fragment>
     );
 };
 
-export default LeaderBoard;
+export default Dashboard;

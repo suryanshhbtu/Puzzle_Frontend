@@ -45,7 +45,7 @@ const retriveStoredToken = ()=>{
         localStorage.removeItem("expirationTime");
         return null;
     }
-    console.log("retrive"+ storedLevel+storedAttempt);
+    // console.log("retrive"+ storedLevel+storedAttempt);
     
     return {token: storedToken, duration: remainingTime, _id:stored_id, name:storedName, eamil:storedEmail,time:storedTime, score:storedScore, level:storedLevel, role: storedRole, attempt:storedAttempt };
 }
@@ -65,7 +65,6 @@ export const AuthContextProvider = (props) =>{
     let initialAttempt;
 
     if(tokenData){ // checking null
-        console.log(tokenData.level+tokenData.attempt+" tokendata");
        initialToken = tokenData.token; 
        initial_id = tokenData._id;
        initialName = tokenData.name;
@@ -102,8 +101,7 @@ export const AuthContextProvider = (props) =>{
         localStorage.setItem("level", level);
         localStorage.setItem("role", role);
         localStorage.setItem("attempt", attempt);
-        localStorage.setItem("message", "reactJS ki maka bhosda");
-        console.log(attempt+"login");
+        // console.log(attempt+"login");
         setToken(token);
         set_id(_id);
         setName(name);
@@ -170,7 +168,6 @@ export const AuthContextProvider = (props) =>{
     }
     useEffect(()=>{
         if(tokenData){
-            console.log(tokenData);
             logoutTimer = setTimeout(logoutHandler, tokenData.duration);
         }
     }, [tokenData, logoutHandler]);

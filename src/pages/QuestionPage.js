@@ -22,7 +22,7 @@ const question_list = [
     {
         title: "Battle of Pratapgarh",
         brief: "The Battle of Pratapgarh was fought on 10 November 1659, at the Pratapgad fort, near the town of Satara, Maharashtra. \n It was fought between the forces of the Marathas under Chhatrapati Shivaji and the Adilshahi troops under Adilshahi General Afzal Khan.\n Adilshahi forces were defeated by the Marathas. \n It was the first significant military victory of the Marathas against the major regional powers.",
-        statement: "Which of the fallowing (Spear, Sword, Tigerclaw and Poisoned Knife) weapon did Shivaji use to kill Afzal Khan? (all letters must be small)       ",
+        statement: "Which of the fallowing (spear, sword, tigerclaw and poisonedKnife) weapon did Shivaji use to kill Afzal Khan? (all letters must be small)       ",
         src: "xBHyDfdRk_0",
         answer: "tigerclaw",
         clue:"36"
@@ -46,7 +46,7 @@ const question_list = [
     {
         title: "Change of Capital after 26 years.",
         brief: " It is one of the strongest fortresses on the Deccan Plateau. It was previously known as Rairee or Rairy fort.",
-         statement: "New Capital Of Shivaji After Rajgarh Fort i.e. 2/9(rajasthan) + 1/3(ita)+2/10(gadchiroli) +1/5(daulatabad) ?",
+         statement: "New Capital Of Shivaji After Rajgarh Fort i.e. 2/9(rajasthan) + 1/3(ita)+2/10(gadchiroli) +1/5(daulatabad)  write answer in small letters?",
         src: "q5.JPG",
         answer: "raigad",
         clue:"73"
@@ -70,7 +70,7 @@ const question_list = [
     {
         title: "Chandrakor Tilak",
         brief: "A mark worn by a Hindu on the forehead to indicate caste, status, or sect, or as an ornament.",
-        statement:"Type any one out of 3",
+        statement:"Type any one out of 3 (a,b,c)",
         src: "q8.JPG",
         answer: "b",
         clue:"59"

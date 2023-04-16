@@ -93,7 +93,6 @@ const QuestionCard = (props) => {
           authCtx.score = (parseInt(authCtx.score,10)+currScore);
           authCtx.time = (parseInt(authCtx.time,10)+ time);
           authCtx.level = (parseInt(authCtx.level,10)+1);
-          console.log("XXXX"+authCtx.level+authCtx.attempt);
         }
         // setUserInput('');
         
@@ -137,6 +136,7 @@ const QuestionCard = (props) => {
     return (
         <div className={classes.card}>
           <div  className = {classes.timer}>
+            <h6>Bonus Timer</h6>
           <Timer reset = {resetTimer} getTimeHandler = {getTimeHandler}/>
           </div>
             <h2 className={classes.header}>{props.title}</h2>

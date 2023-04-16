@@ -32,9 +32,14 @@ const MainNavigation = () => {
           {showMenu ?  <FiX /> : <FiMenu />}
         </div>
         <ul className={showMenu ? classes.nav_link_active : classes.nav_link } >
-          {!isLoggedIn && ( // to show only when user is NOT logged in
+        {!isLoggedIn && ( // to show only when user is NOT logged in
             <li  onClick={closeMenu} className={classes.nav_item}>
               <NavLink to='/auth'>Login</NavLink>
+            </li>
+          )}
+          {isLoggedIn && ( // to show only when user is NOT logged in
+            <li  onClick={closeMenu} className={classes.nav_item}>
+              <NavLink to='/'>Home</NavLink>
             </li>
           )}
           {isLoggedIn && ( // to show only when user is logged in
@@ -47,9 +52,14 @@ const MainNavigation = () => {
               <NavLink to='/question'>Question</NavLink>
             </li>
           )}
+          {isLoggedIn && ( // to show only when user is logged in
+            <li onClick={closeMenu} className={classes.nav_item}>
+              <NavLink to='/leaderboard'>LeaderBoard</NavLink>
+            </li>
+          )}
           {isAdmin && isLoggedIn && ( // to show only when user is logged in
             <li onClick={closeMenu} className={classes.nav_item}>
-              <NavLink to='/leaderboard'>Leader Board</NavLink>
+              <NavLink to='/dashboard'>Dashboard</NavLink>
             </li>
           )}
           {isLoggedIn && (   // to show only when user is logged in

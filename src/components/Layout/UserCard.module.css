@@ -1,15 +1,21 @@
 .container{
     margin: 3rem auto;
-    width: 95%;
+    width: 100%;
     max-width: 45rem;
     border-radius: 6px;
     background-color: #a24809;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 4px rgba(0, 0, 0, 0.2);
     padding: 1rem;
     text-align: center;
     color: aliceblue;
+    
+    align-items: center;
 }
 .first{
     float:left;
-    font-size: 36px;
+    font-size: 16px;
+    
+}
+.second{
+    margin-left: 5%;
 }

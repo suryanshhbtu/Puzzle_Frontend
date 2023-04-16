@@ -100,17 +100,16 @@ const AuthForm = () => {
       } else {
         return res.json().then((data) => {
           
-          console.log(data);
-          let errorMessage = "Authentication Failed !";
+          // console.log(data);
 
-          throw new Error(errorMessage);
+          throw new Error(data.message);
         });
       }
     })
       .then((data) => {
 
-        console.log(data);
-        console.log(data.expiresIn);
+        // console.log(data);
+        // console.log(data.expiresIn);
         const expirationTime = new Date(new Date().getTime() + (+14400000));  // expires in is in sec -> msec -> date + expire => expireTime
         authCtx.login(data.token, expirationTime.toISOString());  // executing login
         history.replace('/');          // back disabled

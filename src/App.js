@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import AuthContext from "./store/auth-context";
 import QuestionPage from "./pages/QuestionPage";
 import LeaderBoard from "./components/Profile/LeaderBoard";
+import Dashboard from "./components/Profile/Dashboard";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -33,6 +34,10 @@ function App() {
           </Route>
           <Route path="/leaderboard">
         {authCtx.isLoggedIn && <LeaderBoard />}
+        {!authCtx.isLoggedIn && <Redirect to= '/' />}
+          </Route>
+          <Route path="/dashboard">
+        {authCtx.isLoggedIn && <Dashboard />}
         {!authCtx.isLoggedIn && <Redirect to= '/' />}
           </Route>
         
