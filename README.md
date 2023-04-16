@@ -24,14 +24,14 @@
     Run 'npm install' to install the dependencies.
     Run 'npm start' to start the application.
     
-Deployment
+#Deployment
 
     This application is deployed on Firebase. You can access the deployed version at https://shivajipuzzle.web.app/
     
-Contributing
+#Contributing
 
     Contributions are welcome! If you find a bug or want to add a new feature, please open an issue first to discuss it.
 
-License
+#License
 
     This project is licensed under the selfLicenced.
